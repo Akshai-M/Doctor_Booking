@@ -123,42 +123,47 @@ function DoctorAppointments() {
       key: "actions",
       render: (_, record) =>
         record.status === "pending" && (
-          <div style={{ display: "flex", gap: "12px" }}>
+          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <button
               onClick={() => changeAppointmentStatus(record, "approved")}
               style={{
                 backgroundColor: "#4caf50",
                 color: "white",
-                padding: "8px 12px",
+                padding: "6px 10px",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
+                fontSize: "14px",
+                lineHeight: "1",
               }}
             >
-              <Check size={16}  /> Approve
+              <Check size={16} /> 
             </button>
             <button
               onClick={() => changeAppointmentStatus(record, "rejected")}
               style={{
                 backgroundColor: "#f44336",
                 color: "white",
-                padding: "8px 12px",
+                padding: "6px 10px",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
+                fontSize: "14px",
+                lineHeight: "1",
               }}
             >
-              <X size={16} /> Reject
+              <X size={16} /> 
             </button>
           </div>
         ),
-    },
+    }
+    
   ];
 
   useEffect(() => {
