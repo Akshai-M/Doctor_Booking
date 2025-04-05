@@ -53,7 +53,28 @@ router.post("/update-doctor-profile", authMiddleware, async (req, res) => {
   }
 });
 
-
+router.get(
+  "/get-appointments-by-doctor-id",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const doctor = await Doctor.findOne({ userId: req.body.userId });
+      const appointments = await Appointment.find({ doctorId: doctor._id });
+      res.status(200).send({
+        message: "Appointments fetched successfully",
+        success: true,
+        data: appointments,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        message: "Error fetching appointments",
+        success: false,
+        error,
+      });
+    }
+  }
+);
 
 
 
